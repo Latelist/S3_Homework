@@ -7,7 +7,30 @@
 Console.Write("Please, enter number: ");
 int N = Convert.ToInt32(Console.ReadLine());
 
-for (int i = 1; i <= N; i++)
+double[] cubes = new double[Math.Abs(N)];
+
+void FillMassive(double[] array)
 {
-    Console.WriteLine(Math.Pow(i, 3));
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (N > 0)
+        {
+            array[i] = Math.Pow((i + 1), 3);
+        }
+        if (N < 0)
+        {
+            array[i] = Math.Pow((-i - 1), 3);
+        }
+    }
 }
+
+void PrintMassive(double[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine(array[i]);
+    }
+}
+
+FillMassive(cubes);
+PrintMassive(cubes);
